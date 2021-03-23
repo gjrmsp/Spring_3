@@ -58,7 +58,5 @@ public class BankBookDAOTest extends MyAbstractTest {
 		
 		assertEquals(1, result);
 	}
-	
-	
 
 }
