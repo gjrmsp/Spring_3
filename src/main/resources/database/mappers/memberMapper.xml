@@ -5,6 +5,6 @@
 
 <mapper namespace="com.google.s3.member.MemberDAO">
 	<insert id="setWrite" parameterType="com.google.s3.member.MemberDTO">
-		insert into bankbook values(,#{},#{},#{})
+		insert into member(id, pw, name, email, phone) values(#{id},#{pw},#{name},#{email},#{phone})
 	</insert>
 </mapper>
