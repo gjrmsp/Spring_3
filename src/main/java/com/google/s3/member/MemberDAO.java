@@ -1,15 +1,8 @@
 package com.google.s3.member;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import oracle.jdbc.driver.DBConversion;
 
 @Repository
 public class MemberDAO {
