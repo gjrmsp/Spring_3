@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.google.s3.bankbook.BankBookDAO">
+	<update id="setUpdate" parameterType="com.google.s3.bankbook.BankBookDTO">
+		update bankbook set bookname=#{bookname}, bookrate=#{bookrate}, booksale=#{booksale} where booknumber=#{booknumber}
+	</update>
+
+	<insert id="setWrite" parameterType="com.google.s3.bankbook.BankBookDTO">
+		insert into bankbook values(bank_seq.nextval, #{bookname}, #{bookrate}, #{booksale})
+	</insert>
+
+	<select id="getSelect" parameterType="com.google.s3.bankbook.BankBookDTO" resultType="com.google.s3.bankbook.BankBookDTO">
+		select * from bankbook where booknumber = #{booknumber}
+	</select>
+
+	<select id="getList" resultType="com.google.s3.bankbook.BankBookDTO">
+		select * from bankbook order by booknumber desc
+	</select>
+
+	<delete id="setDelete" parameterType="com.google.s3.bankbook.BankBookDTO">
+		delete bankbook where booknumber = #{booknumber}
+	</delete>
+</mapper>
