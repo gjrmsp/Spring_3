@@ -31,12 +31,11 @@ public class MemberDAO {
 	
 	//Join
 	public int memberJoin(MemberDTO memberDTO) throws Exception {	
-		//id를 제외하고 나머지 수정
 		return sqlsession.insert(NAMESPACE+"memberJoin",memberDTO);
 	}
 
 	//login - id pw를 받아서 조회
-	public MemberDTO login(MemberDTO memberDTO) throws Exception{
+	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
 		return sqlsession.selectOne(NAMESPACE+"memberLogin", memberDTO);
 	}
 
