@@ -34,7 +34,7 @@ public class BankBookDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void getListTest()throws Exception{
 		List<BankBookDTO> ar = bankBookDAO.getList();
 		
@@ -44,6 +44,7 @@ public class BankBookDAOTest extends MyAbstractTest {
 	//@Test
 	public void getSelectTest()throws Exception{
 		BankBookDTO bankBookDTO = bankBookDAO.getSelect(null);
+		
 		assertNotNull(bankBookDTO);
 	}
 	
