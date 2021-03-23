@@ -13,14 +13,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	private MemberDAO memberDAO;
 	
 	@Test
-	public void memberDeleteTest() throws Exception{
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id10");
-		assertEquals(memberDAO.memberDelete(memberDTO), 1);
-	}
-	
-	//@Test
-	public void memberUpdateTest() throws Exception{
+	public void memberUpdate() throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id10");
 		memberDTO = memberDAO.memberLogin(memberDTO);
@@ -29,7 +22,14 @@ public class MemberDAOTest extends MyAbstractTest {
 	}
 	
 	//@Test
-	public void memberJoinTest() throws Exception{
+	public void memberDelete() throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id10");
+		assertEquals(memberDAO.memberDelete(memberDTO), 1);
+	}
+	
+	//@Test
+	public void memberJoin() throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id10");
 		memberDTO.setPw("pw10");

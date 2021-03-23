@@ -5,15 +5,15 @@
 
 <mapper namespace="com.google.s3.member.MemberDAO">
 	<update id="memberUpdate" parameterType="com.google.s3.member.MemberDTO">
-		update member set Pw=#{pw}, Name=#{name},Email=#{email},Phone=#{phone} Where Id=#{id}
+		update member set pw=#{pw}, name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
 	<delete id="memberDelete" parameterType="com.google.s3.member.MemberDTO">
-		delete member where Id=#{id}
+		delete member where id=#{id}
 	</delete>
 	<insert id="memberJoin" parameterType="com.google.s3.member.MemberDTO">
 		insert into member values(#{id}, #{pw}, #{name}, #{email}, #{phone})
 	</insert>
 	<select id="memberLogin" parameterType="com.google.s3.member.MemberDTO" resultType="com.google.s3.member.MemberDTO">
-		select * from member where Id=#{id} and Pw=#{pw}
+		select * from member where id=#{id} and pw=#{pw}
 	</select>
 </mapper>
