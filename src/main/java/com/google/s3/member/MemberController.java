@@ -13,22 +13,22 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping("memberJoin")
-	public String memberJoin() {
-		return "redirect:./memberJoin";
-	}
-	
-	@RequestMapping(value = "/member/memberJoin", method = RequestMethod.POST)
-	public void memberJoin(MemberDTO memberDTO) throws Exception {
-		int result = memberService.memberJoin(memberDTO);
-	}
-	
-	public ModelAndView memberLogin(MemberDTO memberDTO) throws Exception {
-		ModelAndView modelAndView = new ModelAndView();
+	@RequestMapping("memberLogin")
+	public void memberLogin() throws Exception {}
+
+	@RequestMapping(value = "memberLogin", method = RequestMethod.POST)
+	public String memberLogin(MemberDTO memberDTO) throws Exception {
 		memberDTO = memberService.memberLogin(memberDTO);
-		
-		modelAndView.addObject("dto", memberDTO);
-		modelAndView.setViewName("member/memberPage");
-		return modelAndView;
+		return "redirect:../";
 	}
+	
+	@RequestMapping("memberJoin")
+	public void memberJoin() throws Exception {}
+	
+	@RequestMapping(value = "memberJoin", method = RequestMethod.POST)
+	public String memberJoin(MemberDTO memberDTO) throws Exception {
+		int result = memberService.memberJoin(memberDTO);
+		return "redirect:../";
+	}
+	
 }
