@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Member Login Page</h1>
-	<form action="./memberLogin" method="post">
+	<form action="memberLogin" method="post">
 		ID <input type="text" name="id"><br>
 		PW <input type="password" name="pw">
 		<button>Login</button>
