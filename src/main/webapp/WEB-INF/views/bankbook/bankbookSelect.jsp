@@ -11,5 +11,7 @@
 	
 	<h3>Name : ${dto.bookname}</h3>
 	<h3>Number : ${dto.booknumber}</h3>
+	
+	<a href="./bankbookDelete?booknumber=${dto.booknumber}">Delete</a>
 </body>
 </html>
