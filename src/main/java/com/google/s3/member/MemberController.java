@@ -15,6 +15,15 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping("memberPage")
+	public void memberPage() throws Exception {}
+	
+	@RequestMapping("memberLogout")
+	public String memberLogout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "redirect:../";
+	}
+	
 	@RequestMapping("memberLogin")
 	public void memberLogin() throws Exception {}
 
