@@ -10,8 +10,9 @@
 	<h1>Member Update</h1>
 	
 	<form action = "./memberUpdate" method="post">
-		<input type="hidden" name="id" value="${member.id}"><br>
-		Pw <input type="password" name="pw" value="${member.pw}"><br>
+		ID <input type="text" name="id" readonly="readonly" value="${member.id}"><br>
+		<!-- <input type="hidden" name="id" value="${member.id}"><br> -->
+		PW <input type="password" name="pw" value="${member.pw}"><br>
 		Name <input type="text" name="name" value="${member.name}"><br>
 		Phone <input type="text" name="phone" value="${member.phone}"><br>
 		Email <input type="text" name="email" value="${member.email}"><br>
