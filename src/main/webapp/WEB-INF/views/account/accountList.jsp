@@ -35,6 +35,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>

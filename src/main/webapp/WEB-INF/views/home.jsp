@@ -13,7 +13,6 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 <a href="./bankbook/bankbookList">BankBook List</a>
-<a href="./account/accountList">Account List</a>
 
 <c:if test="${empty member}">
 <a href="./member/memberJoin">Join</a>
