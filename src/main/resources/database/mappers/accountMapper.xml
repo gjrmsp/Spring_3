@@ -5,7 +5,7 @@
 
 <mapper namespace="com.google.s3.account.AccountDAO">
 	<insert id="setInsert" parameterType="AccountDTO">
-		insert into account values(#{accountnumber}, #{accountbalance}, sysdate, #{id}, #{booknumber})
+		insert into account values(#{accountnumber}, 0, sysdate, #{id}, #{booknumber})
 	</insert>
 
 	<select id="getList" parameterType="AccountDTO" resultType="AccountDTO">

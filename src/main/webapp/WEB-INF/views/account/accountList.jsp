@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +13,17 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Number</th>
-				<th>Balance</th>
-				<th>Date</th>
-				<th>ID</th>
-				<th>Booknumber</th>
+				<th>계좌번호</th>
+				<th>개설일</th>
+				<th>잔액</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${list}" var="account">
 				<tr>
 					<td>${account.accountnumber}</td>
-					<td>${account.accountbalance}</td>
 					<td>${account.accountdate}</td>
-					<td>${account.id}</td>
-					<td>${account.booknumber}</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>${account.accountbalance}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
