@@ -13,7 +13,7 @@
 	<h3>Name : ${dto.bookname}</h3>
 	<h3>Number : ${dto.booknumber}</h3>
 
-	<a href="">계좌 개설</a>
+	<a href="../account/accountInsert?booknumber=${dto.booknumber}">계좌 개설</a>
 
 	<c:catch>
 		<c:if test="${member.id eq 'admin'}">
