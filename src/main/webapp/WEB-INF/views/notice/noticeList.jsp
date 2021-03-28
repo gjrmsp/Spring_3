@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<h1>Notice List</h1>
-	
+
 	<table>
 		<thead>
 			<tr>
@@ -27,14 +27,18 @@
 		<tbody>
 			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td>${dto.noticenum}</td>
-					<td>${dto.noticename}</td>
-					<td>${dto.noticenwriter}</td>
-					<td>${dto.noticecontents}</td>
-					<td>${dto.noticeregdate}</td>
+					<td>${dto.num}</td>
+					<td><a href="noticeSelect?num=${dto.num}">${dto.title}</a></td>
+					<td>${dto.writer}</td>
+					<td>${dto.contents}</td>
+					<td>${dto.regdate}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	<br>
+	<c:if test="${member.id eq 'admin'}">
+		<a href="../notice/noticeInsert">작성</a>
+	</c:if>
 </body>
 </html>

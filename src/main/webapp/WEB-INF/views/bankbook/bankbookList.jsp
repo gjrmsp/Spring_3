@@ -31,11 +31,6 @@
 					<td>${dto.bookrate}</td>
 					<td>${dto.booksale}</td>
 				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
 			</c:forEach>
 		</tbody>
 	</table>

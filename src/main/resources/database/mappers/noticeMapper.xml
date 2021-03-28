@@ -13,11 +13,11 @@
 	</select>
 	
 	<insert id="setInsert" parameterType="com.google.s3.notice.NoticeDTO">
-		insert into notice values(notice_seq.nextval, #{num}, #{title}, #{writer}, #{contents}, #{regdate}, #{hit})
+		insert into notice values(notice_seq.nextval, #{num}, #{title}, #{writer}, #{contents}, #{regdate})
 	</insert>
 	
 	<update id="setUpdate" parameterType="com.google.s3.notice.NoticeDTO">
-		update notice set num=#{num}, title=#{title}, writer=#{writer}, contents=#{contents}, regdate=#{regdate}, hit=#{hit}
+		update notice set title=#{title}, writer=#{writer}, contents=#{contents}, regdate=#{regdate}, hit=#{hit} where num=#{num}
 	</update>
 	
 	<delete id="setDelete" parameterType="com.google.s3.notice.NoticeDTO">

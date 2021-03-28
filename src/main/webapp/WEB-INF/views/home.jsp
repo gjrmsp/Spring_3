@@ -26,7 +26,7 @@
 				<h3>Some Links</h3>
 				<p>Lorem ipsum dolor sit ame.</p>
 				<ul class="nav nav-pills flex-column">
-					<li class="nav-item"><a class="nav-link" href="/s3/notice/noticeList">Notice</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 				</ul>
@@ -60,7 +60,7 @@
 	<!-- 
 		기능
 		글 리스트	- 누구나 접근 가능
-		상세보기	- 누구나 접근 가능, 글리스트에서 제목을 클릭
+		상세보기	- 누구나 접근 가능, 글 리스트에서 제목을 클릭
 		글 수정	- 관리자만 접근 가능
 		글 삭제	- 관리자만 접근 가능
 		글 작성	- 관리자만 접근 가능
