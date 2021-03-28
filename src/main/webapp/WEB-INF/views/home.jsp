@@ -26,12 +26,9 @@
 				<h3>Some Links</h3>
 				<p>Lorem ipsum dolor sit ame.</p>
 				<ul class="nav nav-pills flex-column">
-					<li class="nav-item"><a class="nav-link active" href="#">Active</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" href="/s3/notice/noticeList">Notice</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-					</li>
 				</ul>
 				<hr class="d-sm-none">
 			</div>
