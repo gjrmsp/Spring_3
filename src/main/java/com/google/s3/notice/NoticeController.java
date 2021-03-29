@@ -4,22 +4,27 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.s3.util.Pager;
+
 @Controller
-@RequestMapping(value = "/notice/**")
+@RequestMapping("/notice/**")
 public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
 
 	@RequestMapping("noticeList")
-	public void getList(Model model) throws Exception {
-		List<NoticeDTO> ar = noticeService.getList();
-		model.addAttribute("list", ar);
+	public ModelAndView getList(Pager pager) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(pager.getCurPage());
+		//List<NoticeDTO> ar = noticeService.getList(curPage);
+		//mv.addObject("list", ar);
+		//mv.setViewName("notice/noticeList");
+		return mv;
 	}
 
 	@RequestMapping("noticeSelect")

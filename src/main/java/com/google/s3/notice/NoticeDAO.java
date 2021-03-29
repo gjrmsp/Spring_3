@@ -1,10 +1,13 @@
 package com.google.s3.notice;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.google.s3.util.Pager;
 
 @Repository
 public class NoticeDAO {
@@ -14,8 +17,8 @@ public class NoticeDAO {
 	private final String NAMESPACE="com.google.s3.notice.NoticeDAO.";
 	
 	//getList
-	public List<NoticeDTO> getList() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public List<NoticeDTO> getList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 		
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {

@@ -10,53 +10,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.google.s3.MyAbstractTest;
 
 public class NoticeDAOTest extends MyAbstractTest {
-	
+
 	@Autowired
 	private NoticeDAO noticeDAO;
-	
+
 	//@Test
 	public void getListTest() throws Exception {
 		List<NoticeDTO> ar = noticeDAO.getList();
 		assertNotEquals(0, ar.size());
+		//assertEquals(3, ar.size());
 	}
 
 	//@Test
 	public void getSelectTest() throws Exception {
 		NoticeDTO noticeDTO = noticeDAO.getSelect(null);
-		
+
 		assertNotNull(noticeDTO);
 	}
-	
-	//@Test
+
+	@Test
 	public void setInsertTest() throws Exception {
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setNum(4);
-		noticeDTO.setTitle("Google");
-		noticeDTO.setWriter("gjrmsp");
-		noticeDTO.setContents("Running Man");
-		int result = noticeDAO.setInsert(noticeDTO);
-		
-		assertEquals(1, result);
+		for(int i=0;i<120;i++) {
+			NoticeDTO noticeDTO = new NoticeDTO();
+			noticeDTO.setTitle("Daum"+i);
+			noticeDTO.setWriter("admin"+i);
+			noticeDTO.setContents("Daum"+i);
+			int result = noticeDAO.setInsert(noticeDTO);
+			if(i%10==0) {
+				Thread.sleep(500);
+			}
+		}
 	}
-	
+
 	//@Test
 	public void setUpdateTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("PES_2021");
+		noticeDTO.setTitle("Daum");
 		noticeDTO = noticeDAO.getSelect(noticeDTO);
-		noticeDTO.setContents("Chelsea");
+		noticeDTO.setContents("Daum");
 		int result = noticeDAO.setUpdate(noticeDTO);
-		
+
 		assertEquals(1, result);		
 	}
-	
-	@Test
+
+	//@Test
 	public void setDelete() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(3);
 		int result = noticeDAO.setDelete(noticeDTO);
-		
+
 		assertEquals(1, result);
 	}
-	
+
 }
