@@ -13,7 +13,7 @@ public class BankBookDAOTest extends MyAbstractTest {
 
 	@Autowired
 	private BankBookDAO bankBookDAO;
-		
+
 	//@Test
 	public void setUpdateTest() throws Exception {
 		BankBookDTO bankBookDTO = new BankBookDTO();
@@ -21,42 +21,48 @@ public class BankBookDAOTest extends MyAbstractTest {
 		bankBookDTO = bankBookDAO.getSelect(bankBookDTO);
 		bankBookDTO.setBookname("New Product");
 		int result = bankBookDAO.setUpdate(bankBookDTO);
-		
+
 		assertEquals(1, result);
 	}
-	
+
 	//@Test
 	public void setDeleteTest() throws Exception {
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		bankBookDTO.setBooknumber(9);
 		int result = bankBookDAO.setDelete(bankBookDTO);
-		
+
 		assertEquals(1, result);
 	}
-	
+
 	//@Test
 	public void getListTest() throws Exception {
 		List<BankBookDTO> ar = bankBookDAO.getList();
-		
+
 		assertNotEquals(0, ar.size());
 	}
 
-	@Test
+	//@Test
 	public void getSelectTest() throws Exception {
 		BankBookDTO bankBookDTO = bankBookDAO.getSelect(null);
-		
+
 		assertNotNull(bankBookDTO);
 	}
-	
-	//@Test
+
+	@Test
 	public void setWriteTest() throws Exception {
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookname("Test");
-		bankBookDTO.setBookrate(0.12);
-		bankBookDTO.setBooksale("Y");
-		int result = bankBookDAO.setWrite(bankBookDTO);
-		
-		assertEquals(1, result);
+
+		for(int i=0;i<200;i++) {
+			BankBookDTO bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookname("Bookname"+i);
+			bankBookDTO.setBookrate(0.12);
+			bankBookDTO.setBooksale("Y");
+			int result = bankBookDAO.setWrite(bankBookDTO);
+			if(i%10 == 0) {
+				Thread.sleep(500);
+			}
+		}
+		//assertEquals(1, result);
+		System.out.println("종료");
 	}
 
 }

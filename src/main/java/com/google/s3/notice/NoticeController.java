@@ -22,9 +22,12 @@ public class NoticeController {
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getCurPage());
-		//List<NoticeDTO> ar = noticeService.getList(curPage);
-		//mv.addObject("list", ar);
-		//mv.setViewName("notice/noticeList");
+
+		List<NoticeDTO> ar = noticeService.getList(pager);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("notice/noticeList");
+		mv.addObject("pager", pager);
 		return mv;
 	}
 
