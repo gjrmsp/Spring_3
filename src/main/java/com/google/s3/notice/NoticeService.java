@@ -51,6 +51,22 @@ public class NoticeService {
 		
 		long startNum = (curBlock-1)*perBlock+1;
 		long lastNum = curBlock*perBlock;
+		
+		// 6. curBlock이 마지막 block일 때 (totalBlock)
+		if(curBlock == totalBlock) {
+			lastNum = totalPage;
+		}
+		
+		// 7. 이전, 다음 block 존재 여부
+		//이전
+		if(curBlock != 1) {
+			pager.setPre(true);
+		}
+		
+		//다음
+		if(curBlock != totalBlock) {
+			pager.setNext(true);
+		}
 
 		pager.setStartNum(startNum);
 		pager.setLastNum(lastNum);

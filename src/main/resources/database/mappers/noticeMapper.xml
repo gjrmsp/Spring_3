@@ -14,7 +14,19 @@
 		select * from
 		(select rownum R, N.* from
 		(select * from
-		notice where num>0 order by num desc) N)
+		notice where
+		<choose>
+			<when test="kind=='Writer'">
+				Writer
+			</when>
+			<when test="kind=='Contents'">
+				Contents
+			</when>
+			<otherwise>
+				Title
+			</otherwise>
+		</choose>
+		like '%' || #{search} || '%' and num>0 order by num desc) N)
 		where R between #{startRow}
 		and #{lastRow}
 	</select>
