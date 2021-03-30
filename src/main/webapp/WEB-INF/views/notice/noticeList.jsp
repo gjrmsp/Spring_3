@@ -66,11 +66,9 @@
 				</div>
 			</form>
 		</div>
+		<c:if test="${member.id eq 'admin'}">
+			<a href="../notice/noticeInsert" class="btn btn-primary" role="button">Write</a>
+		</c:if>
 	</div>
-
-	<br>
-	<c:if test="${member.id eq 'admin'}">
-		<a href="../notice/noticeInsert">작성</a>
-	</c:if>
 </body>
 </html>
