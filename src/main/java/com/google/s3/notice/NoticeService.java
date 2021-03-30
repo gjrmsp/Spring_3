@@ -27,7 +27,7 @@ public class NoticeService {
 		
 		// ---------------------------
 		// 1. totalCount
-		long totalCount = noticeDAO.getTotalCount();
+		long totalCount = noticeDAO.getTotalCount(pager);
 		
 		// 2. totalPage
 		long totalPage = totalCount/perPage;

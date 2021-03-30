@@ -1,6 +1,5 @@
 package com.google.s3.notice;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -16,8 +15,8 @@ public class NoticeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.google.s3.notice.NoticeDAO.";
 	
-	public Long getTotalCount() throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getTotalCount");
+	public Long getTotalCount(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 	
 	//getList
