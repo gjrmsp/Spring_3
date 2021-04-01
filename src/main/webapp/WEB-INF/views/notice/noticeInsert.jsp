@@ -30,8 +30,10 @@
 
 
 			</div>
-			<button type="submit" class="btn btn-primary">작성</button>
+			<button type="submit" class="btn btn-primary" onclick="insertCheck()">작성</button>
+			<input type="button" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
 		</form>
 	</div>
+	<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
 </body>
 </html>
