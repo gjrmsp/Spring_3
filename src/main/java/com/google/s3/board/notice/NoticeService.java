@@ -5,15 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.s3.board.BoardDTO;
+import com.google.s3.board.BoardService;
 import com.google.s3.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService {
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
 
-	public List<NoticeDTO> getList(Pager pager) throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		int perPage = 10; // 한 페이지당 보여줄 글의 개수
 		int perBlock = 5; // 한 블럭당 보여줄 숫자의 개수
 		

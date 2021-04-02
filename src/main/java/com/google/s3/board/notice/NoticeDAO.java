@@ -6,10 +6,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.google.s3.board.BoardDAO;
+import com.google.s3.board.BoardDTO;
 import com.google.s3.util.Pager;
 
 @Repository
-public class NoticeDAO {
+public class NoticeDAO implements BoardDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -19,11 +21,12 @@ public class NoticeDAO {
 		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 	
-	//getList
-	public List<NoticeDTO> getList(Pager pager) throws Exception {
+	@Override
+	public List<BoardDTO> getList(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
-		
+	
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		noticeDTO = sqlSession.selectOne(NAMESPACE+"getSelect", noticeDTO);
 		return noticeDTO;

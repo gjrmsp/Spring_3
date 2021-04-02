@@ -5,13 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
+<c:import url="../template/bootStrap.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<h1>Notice List</h1>
+	<h1>${board} List</h1>
 	<div class="container">
 		<table class="table">
 			<thead class="thead-dark">
@@ -27,7 +26,7 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
+						<td><a href="./${board}Select?num=${dto.num}">${dto.title}</a></td>
 						<td>${dto.writer}</td>
 						<td>${dto.regdate}</td>
 						<td>${dto.hit}</td>
@@ -36,6 +35,7 @@
 			</tbody>
 		</table>
 	</div>
+	<%-- 
 	<div class="container">
 		<ul class="pagination">
 			<c:if test="${pager.pre}">
@@ -52,7 +52,7 @@
 			</c:if>
 		</ul>
 		<div class="input-group mt-3 mb-3">
-			<form action="./noticeList" class="form-inline">
+			<form action="./${board}List" class="form-inline">
 				<div class="input-group-prepend">
 					<select class="form-control" name="kind" id="sel1">
 						<option>Title</option>
@@ -66,9 +66,10 @@
 				</div>
 			</form>
 		</div>
-		<c:if test="${member.id eq 'admin'}">
-			<a href="../notice/noticeInsert" class="btn btn-primary" role="button">Write</a>
-		</c:if>
+		--%>
+	<c:if test="${member.id eq 'admin'}">
+		<a href="./${board}Insert" class="btn btn-primary" role="button">Write</a>
+	</c:if>
 	</div>
 </body>
 </html>

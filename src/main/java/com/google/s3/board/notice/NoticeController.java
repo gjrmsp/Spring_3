@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.s3.board.BoardDTO;
 import com.google.s3.util.Pager;
 
 @Controller
@@ -23,10 +24,11 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getCurPage());
 
-		List<NoticeDTO> ar = noticeService.getList(pager);
+		List<BoardDTO> ar = noticeService.getList(pager);
 		
 		mv.addObject("list", ar);
-		mv.setViewName("notice/noticeList");
+		mv.setViewName("board/boardList");
+		mv.addObject("board", "notice");
 		mv.addObject("pager", pager);
 		return mv;
 	}
@@ -56,7 +58,7 @@ public class NoticeController {
 			path = "../";
 		}
 		model.addAttribute("msg", message);
-		model.addAttribute("path", path);
+		model.addAttribute("path", "./noticeList");
 		return "common/commonResult";
 	}
 
