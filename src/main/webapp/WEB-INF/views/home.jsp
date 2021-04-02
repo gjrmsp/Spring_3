@@ -17,25 +17,26 @@
 	<button onclick="go()">BUTTON</button>
 	<button id="btn">CLICK</button>
 	<button id="btn2">CLICK2</button>
-<script type="text/javascript" >
-	let btn = document.getElementById("btn");
-	let btn2 = document.getElementById("btn2");
 	
-	//btn2.addEventListener("click", go);
-	btn2.addEventListener("click", function() {
-		alert("btn2");
-		go();
-	});
+	<script type="text/javascript">
+		let btn = document.getElementById("btn");
+		let btn2 = document.getElementById("btn2");
 
-	//btn.onclick = go();
-	btn.onclick = function() {
-		alert("익명함수");
-		go();
-	}
+		//btn2.addEventListener("click", go);
+		btn2.addEventListener("click", function() {
+			alert("btn2");
+			go();
+		});
 
-	function go() {
-		alert("hello");
-	}
-</script>
+		//btn.onclick = go();
+		btn.onclick = function() {
+			alert("익명함수");
+			go();
+		}
+
+		function go() {
+			alert("hello");
+		}
+	</script>
 </body>
 </html>
