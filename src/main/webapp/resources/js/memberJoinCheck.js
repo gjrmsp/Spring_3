@@ -4,15 +4,24 @@
 
 let check = document.getElementsByClassName("check");
 let all = document.getElementById("all");
+const btn = document.getElementById("btn");
 
-all.addEventListener("click", function(){
+btn.addEventListener("click", function() {
+	if(all.checked) {
+		location.href = "./memberJoin"; //GET
+	} else {
+		alert("약관 동의는 필수입니다")
+	}
+});
+
+all.addEventListener("click", function() {
 	for(let ch of check){
 		ch.checked=all.checked;
 	}
 });
 
 for(let ch of check){
-	ch.addEventListener("click",function(){
+	ch.addEventListener("click",function() {
 		let result = true;
 		for(let c of check){
 			if(!c.checked){
