@@ -1,4 +1,4 @@
-package com.google.s3.notice;
+package com.google.s3.board.notice;
 
 import java.util.List;
 

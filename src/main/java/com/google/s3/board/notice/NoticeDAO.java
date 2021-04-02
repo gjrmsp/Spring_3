@@ -1,4 +1,4 @@
-package com.google.s3.notice;
+package com.google.s3.board.notice;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class NoticeDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.google.s3.notice.NoticeDAO.";
+	private final String NAMESPACE="com.google.s3.board.notice.NoticeDAO.";
 	
 	public Long getTotalCount(Pager pager) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
