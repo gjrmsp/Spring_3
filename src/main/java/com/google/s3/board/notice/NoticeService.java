@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.s3.board.BoardDTO;
 import com.google.s3.board.BoardService;
+import com.google.s3.board.qna.QnaDTO;
 import com.google.s3.util.Pager;
 
 @Service
