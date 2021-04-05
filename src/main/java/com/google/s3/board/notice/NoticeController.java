@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.s3.board.BoardDTO;
 import com.google.s3.util.Pager;
+import com.google.s3.util.Pager_BackUp;
 
 @Controller
 @RequestMapping("/notice/**")
