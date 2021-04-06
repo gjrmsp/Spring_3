@@ -15,21 +15,21 @@
 		<form id="frm" action="./${board}Insert" method="post">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
-					readonly="readonly" value="${member.id}" class="form-control"
+					readonly="readonly" value="${member.id}" class="form-control myCheck"
 					id="writer" name="writer">
 			</div>
 			<div class="form-group">
 				<label for="title">Title:</label> <input type="text"
-					class="form-control" id="title" name="title">
+					class="form-control myCheck" id="title" name="title">
 			</div>
 			<div class="form-group">
 				<label for="contents">Contents:</label>
-				<textarea class="form-control" rows="5" id="contents"
+				<textarea class="form-control myCheck" rows="5" id="contents"
 					name="contents"></textarea>
 			</div>
-			<input type="submit" id="btn" value="WRITE" class="btn btn-primary">
+			<input type="button" id="btn" value="WRITE" class="btn btn-primary">
 		</form>
 	</div>
-	<!-- <script type="text/javascript" src="../resources/js/insertCheck.js"></script> -->
+	<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 </body>
 </html>
