@@ -16,7 +16,6 @@ public class NoticeDAO implements BoardDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	
 	private final String NAMESPACE="com.google.s3.board.notice.NoticeDAO.";
 
 	@Override
@@ -26,7 +25,7 @@ public class NoticeDAO implements BoardDAO {
 
 	@Override
 	public long getTotalCount(Pager pager) throws Exception {
-		return 0;
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 
 	@Override
@@ -36,7 +35,7 @@ public class NoticeDAO implements BoardDAO {
 
 	@Override
 	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
-		return 0;
+		return sqlSession.update(NAMESPACE+"setHitUpdate", boardDTO);
 	}
 
 	@Override
@@ -46,12 +45,12 @@ public class NoticeDAO implements BoardDAO {
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		return 0;
+		return sqlSession.update(NAMESPACE+"setUpdate", boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
 	
 }

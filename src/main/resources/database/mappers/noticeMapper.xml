@@ -25,7 +25,7 @@
 				title
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%' and num >0
+		like '%' || #{search} || '%' and num>0
 	</select>
 
 	<select id="getList" resultType="NoticeDTO"
@@ -34,11 +34,10 @@
 		(select rownum R, N.* from
 		(select * from notice where
 		<choose>
-			<when test="kind=='Writer'">
+			<when test="kind == 'Writer'">
 				writer
 			</when>
-
-			<when test="kind =='Contents'">
+			<when test="kind == 'Contents'">
 				contents
 			</when>
 
@@ -48,7 +47,7 @@
 
 		</choose>
 
-		like '%' || #{search} || '%' and num > 0 order by num desc) N)
+		like '%' || #{search} || '%' and num>0 order by num desc) N)
 		where R
 		between #{startRow} and #{lastRow}
 	</select>
@@ -58,4 +57,12 @@
 		values(notice_seq.nextval,#{title}, #{writer}, #{contents}, sysdate,
 		0)
 	</insert>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete notice where num=#{num}
+	</delete>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		update notice set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
 </mapper>

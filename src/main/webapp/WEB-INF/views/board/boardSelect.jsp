@@ -12,16 +12,35 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h1>${board}SelectPage</h1>
+		<h1>${board} Select Page</h1>
 		<h3>Title : ${dto.title}</h3>
 		<h3>Writer : ${dto.writer}</h3>
 		<h3>Contents : ${dto.contents}</h3>
 
 		<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
-		<a href="./${board}Delete?num=${dto.num}" class="btn btn-info">Delete</a>
+		<a href="#" id="del" class="btn btn-info">Delete</a>
 		<c:if test="${board ne 'notice'}">
 			<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
 		</c:if>
+
+		<form action="./${board}Delete" id="frm" method="get">
+			<input type="hidden" name="num" value="${dto.num}">
+		</form>
 	</div>
+
+	<script type="text/javascript">
+		const del = document.getElementById("del");
+		const frm = document.getElementById("frm");
+		del.addEventListener("click", function() {
+			let result = confirm("Delete??");
+
+			if (result) {
+				//frm.method="post";
+				frm.setAttribute("method", "post");
+				frm.submit();
+				//location.href="./${board}Delete?num=${dto.num}";
+			}
+		});
+	</script>
 </body>
 </html>

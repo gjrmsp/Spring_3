@@ -36,61 +36,13 @@ public class QnaService implements BoardService {
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-		int perPage=10;
-		int perBlock=5;
-
-		// ---- startRow, lastRow ----
-		long startRow = (pager.getCurPage()-1)*perPage+1;
-		long lastRow = pager.getCurPage()*perPage;
-
-		pager.setStartRow(startRow);
-		pager.setLastRow(lastRow);
-
-		//1. totalCount
-		long totalCount=qnaDAO.getTotalCount(pager);
-
-		//2. totalPage
-		long totalPage = totalCount / perPage;
-		if(totalCount%perPage != 0) {
-			totalPage++;
-		}
-
-		//3. totalBlock
-		long totalBlock = totalPage / perBlock;
-		if(totalPage%5 != 0) {
-			totalBlock++;
-		}
-
-		//4. curBlock
-		long curBlock = pager.getCurPage()/perBlock;
-		if(pager.getCurPage()%perBlock != 0) {
-			curBlock++;
-		}
-
-		//5. startNum, lastNum
-		long startNum = (curBlock-1)*perBlock+1;
-		long lastNum = curBlock*perBlock;
-
-
-		//6. curBlock이 마지막 block일 때 (totalBlock)
-		if(curBlock == totalBlock) {
-			lastNum = totalPage;
-		}
-
-		//7. 이전, 다음 block 존재 여부
-		// 이전
-		if(curBlock != 1) {
-			pager.setPre(true);
-		}
-
-		// 다음
-		if(curBlock != totalBlock) {
-			pager.setNext(true);
-		}
-
-		pager.setStartNum(startNum);
-		pager.setLastNum(lastNum);
-
+		//1. row
+		pager.makeRow();
+		
+		//2. pageing
+		long totalCount = qnaDAO.getTotalCount(pager);
+		pager.makeNum(totalCount);
+		
 		return qnaDAO.getList(pager);
 	}
 
@@ -107,11 +59,11 @@ public class QnaService implements BoardService {
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		return 0;
+		return qnaDAO.setUpdate(boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		return 0;
+		return qnaDAO.setDelete(boardDTO);
 	}
 }
