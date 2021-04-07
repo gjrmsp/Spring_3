@@ -11,9 +11,25 @@
 
 <c:import url="./template/bootStrap.jsp"></c:import>
 <title>Home</title>
+<style type="text/css">
+#d1 {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	overflow: hidden;
+}
+
+#d2 {
+	width: 50px;
+	height: 50px;
+	background-color: yellow;
+	margin: 75px auto;
+}
+</style>
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
+
 	<button class="b">BUTTON</button>
 	<button id="btn" class="b">CLICK</button>
 	<button id="btn2" class="b">CLICK2</button>
@@ -23,14 +39,27 @@
 	</ol>
 	<select id="mon"></select>
 
+	<div id="d1">
+		<div id="d2"></div>
+	</div>
+
 	<script type="text/javascript">
 	$("#btn2").click(function() {
 		$("#result").prepend('<li>GO</li>');
 	});		
 
-	for(let i=1;i<13;i++){ $("#mon").append("
+	for(let i=1;i<13;i++){$("#mon").append("
 	<option>"+i+"</option>
-	"); }
+	)};
+	
+	$("#d1").click(function(){
+		console.log("parent");
+	});
+	
+	$("#d2").click(function() {
+		console.log("child");
+	});
+
 	</script>
 
 </body>
