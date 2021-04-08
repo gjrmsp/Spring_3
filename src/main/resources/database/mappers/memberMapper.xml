@@ -29,21 +29,27 @@
 	</select>
 
 	<resultMap type="MemberDTO" id="memberLoginResult">
-		<id property="id" column="id"/>
-		<result property="pw" column="pw"/>
-		<result property="name" column="name"/>
-		<result property="phone" column="phone"/>
-		<result property="email" column="email"/>
-		<association property="memberFileDTO" javaType="MemberFileDTO" resultMap="memberFileResult"></association>
+		<id property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<association property="memberFileDTO"
+			javaType="MemberFileDTO" resultMap="memberFileResult"></association>
 	</resultMap>
 	<resultMap type="MemberFileDTO" id="memberFileResult">
-		<id property="num" column="num"/>
-		<result property="fileName" column="fileName"/>
-		<result property="origineName" column="origineName"/>
+		<id property="num" column="num" />
+		<result property="fileName" column="fileName" />
+		<result property="origineName" column="origineName" />
 	</resultMap>
 
 	<select id="memberLoginFile" resultType="MemberFileDTO"
 		parameterType="MemberDTO">
 		select * from memberFile where id=#{id}
+	</select>
+
+	<select id="getMemberFile" parameterType="MemberDTO"
+		resultType="MemberFileDTO">
+		select fileName from memberFile where id=#{id}
 	</select>
 </mapper>
