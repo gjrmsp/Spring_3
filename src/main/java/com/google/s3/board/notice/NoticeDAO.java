@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.google.s3.board.BoardDAO;
 import com.google.s3.board.BoardDTO;
+import com.google.s3.board.BoardFileDTO;
 import com.google.s3.util.Pager;
 import com.google.s3.util.Pager_BackUp;
 
@@ -41,6 +42,14 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
+	}
+
+	public long getNum()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getNum");
+	}
+
+	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setFileInsert", boardFileDTO);
 	}
 
 	@Override

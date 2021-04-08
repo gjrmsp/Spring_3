@@ -8,8 +8,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.s3.MyAbstractTest;
+import com.google.s3.board.BoardDTO;
 import com.google.s3.board.notice.NoticeDAO;
 import com.google.s3.board.notice.NoticeDTO;
+import com.google.s3.util.Pager;
 import com.google.s3.util.Pager_BackUp;
 
 public class NoticeDAOTest extends MyAbstractTest {
@@ -18,17 +20,10 @@ public class NoticeDAOTest extends MyAbstractTest {
 	private NoticeDAO noticeDAO;
 
 	//@Test
-	public void getListTest(Pager_BackUp pager) throws Exception {
-		List<NoticeDTO> ar = noticeDAO.getList(pager);
-		assertNotEquals(0, ar.size());
-		//assertEquals(3, ar.size());
-	}
-
-	//@Test
 	public void getSelectTest() throws Exception {
-		NoticeDTO noticeDTO = noticeDAO.getSelect(null);
+		BoardDTO boardDTO = noticeDAO.getSelect(null);
 
-		assertNotNull(noticeDTO);
+		assertNotNull(boardDTO);
 	}
 
 	@Test
@@ -47,11 +42,11 @@ public class NoticeDAOTest extends MyAbstractTest {
 
 	//@Test
 	public void setUpdateTest() throws Exception {
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("Daum");
-		noticeDTO = noticeDAO.getSelect(noticeDTO);
-		noticeDTO.setContents("Daum");
-		int result = noticeDAO.setUpdate(noticeDTO);
+		BoardDTO boardDTO = new NoticeDTO();
+		boardDTO.setTitle("Daum");
+		boardDTO = noticeDAO.getSelect(boardDTO);
+		boardDTO.setContents("Daum");
+		int result = noticeDAO.setUpdate(boardDTO);
 
 		assertEquals(1, result);		
 	}

@@ -18,7 +18,8 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<h2>${board}form</h2>
-		<form id="frm" action="./${board}Insert" method="post">
+		<form id="frm" action="./${board}Insert" method="post"
+			enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
 					readonly="readonly" value="${member.id}"
@@ -40,12 +41,10 @@
 		</form>
 	</div>
 	<div id="sample">
-		<div class="input-group" id="d">
+		<div class="input-group">
 			<div class="custom-file">
-				<input type="file" class="custom-file-input" id="inputGroupFile04"
-					aria-describedby="inputGroupFileAddon04"> <label
-					class="custom-file-label" for="inputGroupFile04">Choose
-					file</label>
+				<input type="file" id="inputGroupFile04" class="custom-file-label"
+					name="files">
 			</div>
 			<div class="input-group-append delete">
 				<input class="btn btn-outline-secondary" type="button"

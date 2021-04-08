@@ -6,11 +6,13 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.google.s3.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.google.s3.member.MemberFileDTO" alias="MemberFileDTO"/>
 		<typeAlias type="com.google.s3.bankbook.BankBookDTO" alias="BankBookDTO"/>
 		<typeAlias type="com.google.s3.account.AccountDTO" alias="AccountDTO"/>
 		<typeAlias type="com.google.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.google.s3.board.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.google.s3.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.google.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
 		<typeAlias type="com.google.s3.util.Pager" alias="Pager"/>
 		
 		<typeAlias type="java.lang.Long" alias="Long"/>
