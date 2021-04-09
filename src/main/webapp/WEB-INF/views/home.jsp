@@ -45,7 +45,7 @@
 
 	<script type="text/javascript">
 		$("#btn2").click(function() {
-			$.get("./test", function(data){
+			$.get("./test?num=3", function(data){
 				console.log(data);
 				$("#d2").html(data);
 			});
