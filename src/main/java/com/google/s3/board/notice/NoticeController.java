@@ -46,8 +46,8 @@ public class NoticeController {
 	}
 	
 	@PostMapping
-	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv) throws Exception {
-		int result = noticeService.setUpdate(boardDTO);
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv, MultipartFile [] files) throws Exception {
+		int result = noticeService.setUpdate(boardDTO, files);
 		
 		if(result>0) {
 			//성공하면 리스트로 이동
