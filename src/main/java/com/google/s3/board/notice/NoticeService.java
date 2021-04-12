@@ -27,6 +27,14 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private HttpSession session;
 
+	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		//fileName을 print
+
+		//int result = noticeDAO.setFileDelete(boardFileDTO);
+		//fileManager.delete("notice", null, session);
+		return 0;
+	}
+
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		return noticeDAO.getSelect(boardDTO);
@@ -34,7 +42,7 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
-		long num =noticeDAO.getNum();
+		long num = noticeDAO.getNum();
 		boardDTO.setNum(num);
 		int result = noticeDAO.setInsert(boardDTO);
 

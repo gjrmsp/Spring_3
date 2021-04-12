@@ -17,6 +17,10 @@ public class MemberService {
 	@Autowired
 	private FileManager fileManager;
 
+	public MemberDTO memberIdCheck(MemberDTO memberDTO) throws Exception {
+		return memberDAO.memberIdCheck(memberDTO);
+	}
+
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
 		memberDTO = memberDAO.memberLogin(memberDTO);
 //		MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);

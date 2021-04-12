@@ -10,7 +10,7 @@ $("#add").click(function() {
 		$("#files").append(contents);
 		count++; // count = count+1;
 	} else {
-		alert("최대 5개만 가능")
+		alert("최대 5개만 가능");
 	}
 });
 

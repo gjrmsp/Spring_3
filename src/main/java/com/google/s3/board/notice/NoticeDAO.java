@@ -19,6 +19,10 @@ public class NoticeDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.google.s3.board.notice.NoticeDAO.";
 
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setFileDelete", boardFileDTO);
+	}
+
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
@@ -44,11 +48,11 @@ public class NoticeDAO implements BoardDAO {
 		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
 
-	public long getNum()throws Exception{
+	public long getNum() throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getNum");
 	}
 
-	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
+	public int setFileInsert(BoardFileDTO boardFileDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setFileInsert", boardFileDTO);
 	}
 

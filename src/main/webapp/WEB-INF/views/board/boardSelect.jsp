@@ -12,7 +12,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h1>${board}Select Page</h1>
+		<h1>${board}SelectPage</h1>
 		<h3>Title : ${dto.title}</h3>
 		<h3>Writer : ${dto.writer}</h3>
 		<h3>Contents : ${dto.contents}</h3>
@@ -21,6 +21,22 @@
 			<c:forEach items="${dto.boardFiles}" var="file">
 				<a href="../resources/upload/${board}/${file.fileName}">${file.origineName}</a>
 			</c:forEach>
+		</div>
+		<!-- 댓글 리스트 -->
+		<div id="comments" title="${dto.num}"></div>
+
+		<div>
+			<div class="form-group">
+				<label for="usr">Name:</label> <input type="text"
+					class="form-control" id="writer">
+			</div>
+
+			<div class="form-group">
+				<label for="comment">Comment:</label>
+				<textarea class="form-control" rows="5" id="contents"></textarea>
+			</div>
+
+			<button type="button" class="btn btn-success" id="write">Write</button>
 		</div>
 
 		<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>

@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.s3.board.BoardDTO;
+import com.google.s3.board.BoardFileDTO;
 import com.google.s3.util.Pager;
 import com.google.s3.util.Pager_BackUp;
 
@@ -22,6 +23,11 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	@GetMapping("fileDelete")
+	public void setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		System.out.println(boardFileDTO.getFileNum());
+	}
 	
 	@GetMapping
 	public ModelAndView setUpdate(BoardDTO boardDTO) throws Exception {

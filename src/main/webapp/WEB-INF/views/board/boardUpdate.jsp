@@ -12,7 +12,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h2>${board} Update form</h2>
+		<h2>${board}Updateform</h2>
 		<form id="frm" action="./${board}Update" method="post">
 			<input type="hidden" name="num" value="${param.num}">
 			<div class="form-group">
@@ -31,9 +31,17 @@
 					name="contents">${dto.contents}</textarea>
 			</div>
 
+			<c:forEach items="${dto.boardFiles}" var="file">
+				<div>
+					<span>${file.origineName}</span><span class="fileDelete"
+						title="${file.fileNum}">X</span>
+				</div>
+			</c:forEach>
+
 			<input type="submit" id="btn" value="UPDATE" class="btn btn-primary">
 		</form>
 	</div>
+	<script type="text/javascript" src="../resources/jquery/boardUpdate.js"></script>
 	<!-- <script type="text/javascript" src="../resources/js/insertCheck.js"></script> -->
 </body>
 </html>
