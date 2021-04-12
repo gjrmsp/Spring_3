@@ -29,10 +29,15 @@ public class NoticeService implements BoardService {
 
 	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
 		//fileName을 print
-
-		//int result = noticeDAO.setFileDelete(boardFileDTO);
-		//fileManager.delete("notice", null, session);
-		return 0;
+		//1. 조회
+		boardFileDTO = noticeDAO.getFileSelect(boardFileDTO);
+		//2. table 삭제
+		int result = noticeDAO.setFileDelete(boardFileDTO);
+		//3. HDD 삭제
+		if(result > 0) {
+			fileManager.delete("notice", boardFileDTO.getFileName(), session);
+		}
+		return result;
 	}
 
 	@Override

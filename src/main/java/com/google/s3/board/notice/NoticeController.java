@@ -25,8 +25,12 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@GetMapping("fileDelete")
-	public void setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
-		System.out.println(boardFileDTO.getFileNum());
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setFileDelete(boardFileDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 	
 	@GetMapping
