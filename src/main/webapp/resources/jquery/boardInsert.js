@@ -3,7 +3,6 @@
  */
 
 $("#btn").click(function() {
-	alert("click");
 /*	let writer = $("#writer").val() != "";
 	let title = $("#title").val().length != 0;
 	let contents = $("#contents").val().length !=0 ;*/

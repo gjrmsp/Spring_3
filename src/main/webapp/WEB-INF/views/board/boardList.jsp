@@ -73,28 +73,28 @@
 				</div>
 			</form>
 		</div>
+		<a href="./${board}Insert" class="btn btn-primary" role="button">Write</a>
+		<script type="text/javascript">
+			let kind = '${pager.kind}';
+			$(".sel").each(function() {
+				let t = $(this).text();
+				if (t == kind) {
+					$(this).prop("selected", true);
+				}
+			});
+
+			$(".p").click(function() {
+				let curPage = $(this).attr("title");
+				let search = '${pager.search}';
+				$("#curPage").val(curPage);
+				$("#frm").submit();
+				/* $("#kind").val(kind);
+				$("#search").val(search); */
+
+				//location.href = "./${board}List?curPage=" + curPage
+				//		+ "&kind=${pager.kind}&search=${pager.search}";
+			});
+		</script>
 	</div>
-	<a href="./${board}Insert" class="btn btn-primary" role="button">Write</a>
-	<script type="text/javascript">
-		let kind = '${pager.kind}';
-		$(".sel").each(function() {
-			let t = $(this).text();
-			if (t == kind) {
-				$(this).prop("selected", true);
-			}
-		});
-		
-		$(".p").click(function() {
-			let curPage = $(this).attr("title");
-			let search = '${pager.search}';
-			$("#curPage").val(curPage);
-			$("#frm").submit();
-			/* $("#kind").val(kind);
-			$("#search").val(search); */
-			
-			//location.href = "./${board}List?curPage=" + curPage
-			//		+ "&kind=${pager.kind}&search=${pager.search}";
-		});
-	</script>
 </body>
 </html>
